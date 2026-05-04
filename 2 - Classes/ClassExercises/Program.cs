@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            StopWatch();
+            //StopWatch();
+            StackOverflowPost();
         }
 
 
@@ -37,6 +38,22 @@
             stopWatch.Stop();
             Console.WriteLine("Stop watch ran for {0} total seconds", stopWatch.Duration());
 
+        }
+
+        public static void StackOverflowPost()
+        {
+            Console.Write("Enter your post title: ");
+            string postTitle = Console.ReadLine();
+            Console.Write("Enter your post description: ");
+            string postBody = Console.ReadLine();
+
+            var post = new StackOverflowPost(postTitle, postBody);
+            post.DisplayPost();
+            post.UpVote();
+            post.UpVote();
+            post.DownVote();
+            post.UpVote();
+            post.DisplayPost();
         }
     }
 
